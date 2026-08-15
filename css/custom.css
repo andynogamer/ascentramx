@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Enlace activo con subrayado amarillo */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #F5A623;
+  transition: width 0.3s ease;
+}
+
+.nav-link.text-ascentra-yellow::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero overlay gradiente */
+.hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 18, 18, 0.92) 0%,
+    rgba(18, 18, 18, 0.75) 45%,
+    rgba(18, 18, 18, 0.35) 100%
+  );
+}
+
+/* Value section overlay */
+.value-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 18, 18, 0.95) 0%,
+    rgba(18, 18, 18, 0.85) 50%,
+    rgba(18, 18, 18, 0.6) 100%
+  );
+}
+
+/* Tarjetas de producto */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Botones */
+.btn-primary {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #E09500;
+  transform: translateY(-1px);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Iconos de beneficios */
+.benefit-icon {
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform: scale(1.1);
+}
+
+/* Animación fade-in al cargar */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
