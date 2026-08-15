@@ -6,7 +6,7 @@ export function initNavigation() {
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.querySelectorAll('[data-nav-link]');
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
 
   menuToggle?.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.toggle('hidden') === false;
@@ -15,18 +15,21 @@ export function initNavigation() {
 
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
-      event.preventDefault();
       const targetId = link.getAttribute('href')?.slice(1);
       const target = targetId ? document.getElementById(targetId) : null;
 
-      if (target) {
-        const offset = header?.offsetHeight || 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      if (!target) return;
 
+      event.preventDefault();
+
+      // Cerrar el menú antes de medir: abierto, el header mide su altura completa
+      // y el desplazamiento quedaría muy por encima de la sección.
       mobileMenu?.classList.add('hidden');
       menuToggle?.setAttribute('aria-expanded', 'false');
+
+      const offset = header?.offsetHeight || 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
@@ -43,6 +46,15 @@ export function initNavigation() {
         currentSection = section.id;
       }
     });
+
+    // El footer es más corto que la ventana, así que el umbral nunca lo alcanza:
+    // al llegar al final de la página marcamos la última sección como activa.
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+    if (atBottom && sections.length) {
+      currentSection = sections[sections.length - 1].id;
+    }
 
     navLinks.forEach((link) => {
       const href = link.getAttribute('href')?.slice(1);
