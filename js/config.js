@@ -1,11 +1,11 @@
 /**
  * Configuración global de ASCENTRA
- * Agrega tu número de WhatsApp en formato internacional sin '+' ni espacios.
- * Ejemplo México: '5218112345678'
+ * El número de WhatsApp va en formato internacional sin '+' ni espacios:
+ * código de país (52) + los 10 dígitos nacionales.
  */
 export const CONFIG = {
   whatsapp: {
-    phoneNumber: '',
+    phoneNumber: '528110821305',
     generalMessage: 'Hola, me interesa cotizar una plataforma de elevación',
     productMessageTemplate: 'Hola, me interesa cotizar la plataforma {model}',
   },
@@ -14,9 +14,9 @@ export const CONFIG = {
     instagram: 'https://instagram.com/ascentramx',
   },
   contact: {
-    phone: '+52 (81) 1234-5678',
+    phone: '+52 81 1082 1305',
     email: 'contacto@ascentramx.com',
-    location: 'Nuevo León, México',
-    hours: 'Lun - Dom: 7:00 am - 7:00 pm',
+    location: 'Francisco Villa 202 Ote, Col. Los Elizondo, Escobedo, Nuevo León',
+    hours: 'Lun - Vie: 8:30 - 18:00',
   },
 };
