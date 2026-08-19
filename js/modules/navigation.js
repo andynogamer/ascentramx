@@ -5,7 +5,7 @@ export function initNavigation() {
   const header = document.getElementById('navbar');
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  const sections = document.querySelectorAll('section[id], footer[id]');
+  const sections = document.querySelectorAll('section[id]');
 
   menuToggle?.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.toggle('hidden') === false;

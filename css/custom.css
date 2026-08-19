@@ -111,6 +111,11 @@ body {
 .animate-delay-200 { animation-delay: 0.2s; }
 .animate-delay-300 { animation-delay: 0.3s; }
 
+/* Mapa de Google */
+.map-container iframe {
+  filter: grayscale(20%) contrast(1.05);
+}
+
 /* Modal ficha técnica */
 .data-sheet-modal {
   position: fixed;

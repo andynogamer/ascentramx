@@ -49,8 +49,14 @@
         },
         {
           "nombre": "JLG 600AJ",
-          "descripcion": "Articulada diésel 4x4 · 60 ft",
+          "descripcion": "Articulada eléctrica 4x4 · 60 ft",
           "imagen": "assets/images/e600.webp",
+          "ficha_tecnica": "assets/data-sheet/600AJ (Electrica).png"
+        },
+        {
+          "nombre": "JLG 600AJ",
+          "descripcion": "Articulada diésel 4x4 · 60 ft",
+          "imagen": "assets/images/600aj.jpg",
           "ficha_tecnica": "assets/data-sheet/600AJ (Diesel).png"
         },
         {
