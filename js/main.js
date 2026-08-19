@@ -1,9 +1,24 @@
-import { initWhatsAppButtons } from './modules/whatsapp.js';
-import { initNavigation } from './modules/navigation.js';
-import { initCatalog } from './modules/catalog.js';
-import { initMap } from './modules/map.js';
+/**
+ * Incrementa este número cada vez que subas cambios al servidor.
+ */
+const APP_VERSION = '1.1.1';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  const v = APP_VERSION;
+  const suffix = `?v=${v}`;
+
+  const [
+    { initWhatsAppButtons },
+    { initNavigation },
+    { initCatalog },
+    { initMap },
+  ] = await Promise.all([
+    import(`./modules/whatsapp.js${suffix}`),
+    import(`./modules/navigation.js${suffix}`),
+    import(`./modules/catalog.js${suffix}`),
+    import(`./modules/map.js${suffix}`),
+  ]);
+
   initNavigation();
   initWhatsAppButtons();
   initCatalog();
