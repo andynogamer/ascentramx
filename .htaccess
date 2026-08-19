@@ -1,0 +1,2 @@
+# Asegura que catalogo.json se sirva con el MIME type correcto (Apache/Hostinger)
+AddType application/json .json

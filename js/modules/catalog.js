@@ -1,5 +1,6 @@
 /**
- * Carga catalogo.json y renderiza las categorías de equipos.
+ * Carga el catálogo y renderiza las categorías de equipos.
+ * Usa import.meta.url para resolver la ruta del JSON de forma fiable en móvil.
  */
 export async function initCatalog() {
   const container = document.getElementById('catalog-container');
@@ -8,10 +9,7 @@ export async function initCatalog() {
   if (!container) return;
 
   try {
-    const response = await fetch('catalogo.json');
-    if (!response.ok) throw new Error('No se pudo cargar el catálogo');
-
-    const data = await response.json();
+    const data = await loadCatalog();
     container.innerHTML = data.categorias.map(renderCategory).join('');
 
     initDataSheetModal();
@@ -19,7 +17,21 @@ export async function initCatalog() {
   } catch (error) {
     console.error(error);
     container.innerHTML =
-      '<p class="text-ascentra-gray text-center col-span-full">No se pudo cargar el catálogo. Intenta recargar la página.</p>';
+      '<p class="text-ascentra-gray text-center py-8">No se pudo cargar el catálogo. Intenta recargar la página.</p>';
+  }
+}
+
+async function loadCatalog() {
+  const catalogUrl = new URL('../../catalogo.json', import.meta.url);
+
+  try {
+    const response = await fetch(catalogUrl, { cache: 'no-cache' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  } catch (fetchError) {
+    console.warn('Fetch del catálogo falló, usando respaldo embebido.', fetchError);
+    const fallback = await import('../catalogo.data.js');
+    return fallback.default;
   }
 }
 
