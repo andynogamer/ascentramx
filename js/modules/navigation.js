@@ -5,7 +5,6 @@ export function initNavigation() {
   const header = document.getElementById('navbar');
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelectorAll('[data-nav-link]');
   const sections = document.querySelectorAll('section[id], footer[id]');
 
   menuToggle?.addEventListener('click', () => {
@@ -13,24 +12,22 @@ export function initNavigation() {
     menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const targetId = link.getAttribute('href')?.slice(1);
-      const target = targetId ? document.getElementById(targetId) : null;
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-nav-link]');
+    if (!link || !link.matches('a[href^="#"]')) return;
 
-      if (!target) return;
+    const targetId = link.getAttribute('href')?.slice(1);
+    const target = targetId ? document.getElementById(targetId) : null;
+    if (!target) return;
 
-      event.preventDefault();
+    event.preventDefault();
 
-      // Cerrar el menú antes de medir: abierto, el header mide su altura completa
-      // y el desplazamiento quedaría muy por encima de la sección.
-      mobileMenu?.classList.add('hidden');
-      menuToggle?.setAttribute('aria-expanded', 'false');
+    mobileMenu?.classList.add('hidden');
+    menuToggle?.setAttribute('aria-expanded', 'false');
 
-      const offset = header?.offsetHeight || 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
+    const offset = header?.offsetHeight || 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
   });
 
   window.addEventListener('scroll', () => {
@@ -38,6 +35,7 @@ export function initNavigation() {
       header.classList.toggle('shadow-lg', window.scrollY > 20);
     }
 
+    const navLinks = document.querySelectorAll('[data-nav-link]');
     let currentSection = 'inicio';
     const scrollPos = window.scrollY + (header?.offsetHeight || 0) + 100;
 
@@ -47,8 +45,6 @@ export function initNavigation() {
       }
     });
 
-    // El footer es más corto que la ventana, así que el umbral nunca lo alcanza:
-    // al llegar al final de la página marcamos la última sección como activa.
     const atBottom =
       window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
 
