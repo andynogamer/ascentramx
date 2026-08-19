@@ -19,4 +19,10 @@ export const CONFIG = {
     location: 'Francisco Villa 202 Ote, Col. Los Elizondo, Escobedo, Nuevo León',
     hours: 'Lun - Vie: 8:30 - 18:00',
   },
+  maps: {
+    // Opcional: agrega una API key de Google Maps Embed API para uso oficial.
+    // Sin key, se usa un embed gratuito basado en la dirección.
+    apiKey: '',
+    query: 'Gral. Francisco Villa 202, Los Elizondo, 66050 Cdad. Gral. Escobedo, N.L.',
+  },
 };
