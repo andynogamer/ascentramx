@@ -1,3 +1,12 @@
+# ASCENTRA - dominio canónico (SEO): siempre https://ascentramx.com
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # www y/o HTTP → https://ascentramx.com (un solo 301, sin doble redirección)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://ascentramx.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
 # ASCENTRA - control de caché para evitar versiones viejas en móvil (Safari/iOS)
 
 <IfModule mod_headers.c>
