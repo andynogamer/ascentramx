@@ -8,6 +8,10 @@
   <meta http-equiv="Expires" content="0">
   <meta name="description" content="ASCENTRA - Renta de plataformas de elevación en Nuevo León. Equipos confiables, atención inmediata y soporte 24/7.">
   <title>ASCENTRA | Renta de Plataformas de Elevación</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=1.2.1">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=1.2.1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1.2.1">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -30,7 +34,7 @@
     };
   </script>
   <!-- Sube ?v= cuando despliegues cambios (ej. 1.1.0 → 1.2.0) -->
-  <link rel="stylesheet" href="css/custom.css?v=1.1.1">
+  <link rel="stylesheet" href="css/custom.css?v=1.2.0">
 </head>
 <body class="bg-ascentra-dark text-white antialiased">
 
@@ -402,6 +406,110 @@
           </div>
         </div>
 
+        <!-- Contact form: entre las cards y Visítanos -->
+        <div class="mb-10 lg:mb-12">
+          <form
+            id="contact-form"
+            class="contact-form relative bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8"
+            novalidate
+            autocomplete="on"
+          >
+            <p id="contact-form-hint" class="text-white/60 text-sm mb-6">
+              Tu mensaje se envía a contacto@ascentramx.com.
+            </p>
+
+            <div class="contact-hp" aria-hidden="true">
+              <input
+                type="text"
+                id="contact-website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div class="contact-field">
+                <label for="contact-nombre" class="contact-label">Nombre</label>
+                <input
+                  type="text"
+                  id="contact-nombre"
+                  name="nombre"
+                  class="contact-input"
+                  maxlength="80"
+                  minlength="2"
+                  required
+                  autocomplete="name"
+                  autocapitalize="words"
+                  spellcheck="false"
+                >
+                <p id="contact-error-nombre" class="contact-field-error" role="alert" hidden></p>
+              </div>
+              <div class="contact-field">
+                <label for="contact-telefono" class="contact-label">Teléfono</label>
+                <input
+                  type="tel"
+                  id="contact-telefono"
+                  name="telefono"
+                  class="contact-input"
+                  maxlength="20"
+                  minlength="8"
+                  required
+                  autocomplete="tel"
+                  inputmode="tel"
+                >
+                <p id="contact-error-telefono" class="contact-field-error" role="alert" hidden></p>
+              </div>
+            </div>
+
+            <div class="contact-field mb-5">
+              <label for="contact-correo" class="contact-label">Correo</label>
+              <input
+                type="email"
+                id="contact-correo"
+                name="correo"
+                class="contact-input"
+                maxlength="254"
+                required
+                autocomplete="email"
+                spellcheck="false"
+              >
+              <p id="contact-error-correo" class="contact-field-error" role="alert" hidden></p>
+            </div>
+
+            <div class="contact-field mb-6">
+              <label for="contact-asunto" class="contact-label">Asunto</label>
+              <textarea
+                id="contact-asunto"
+                name="asunto"
+                class="contact-input contact-textarea"
+                maxlength="1000"
+                minlength="5"
+                required
+                rows="5"
+              ></textarea>
+              <p id="contact-error-asunto" class="contact-field-error" role="alert" hidden></p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+              <button
+                type="submit"
+                id="contact-submit"
+                class="inline-flex items-center justify-center bg-ascentra-yellow text-ascentra-dark font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-full hover:bg-ascentra-yellow-hover transition-colors"
+              >
+                Enviar mensaje
+              </button>
+              <p id="contact-form-status" class="contact-form-status text-sm" role="status" aria-live="polite" hidden></p>
+            </div>
+
+            <noscript>
+              <p class="text-white/70 text-sm mt-4">
+                Para enviar el formulario necesitas JavaScript. También puedes escribirnos a contacto@ascentramx.com.
+              </p>
+            </noscript>
+          </form>
+        </div>
+
         <!-- Map / location -->
         <div>
           <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
@@ -532,6 +640,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/main.js?v=1.1.1"></script>
+  <script type="module" src="js/main.js?v=1.2.0"></script>
 </body>
 </html>

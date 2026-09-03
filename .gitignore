@@ -1,2 +1,5 @@
 # Servidor estático local para desarrollo
 serve.ps1
+
+# Rate limit del formulario de contacto (datos de IP)
+api/storage/ratelimit/*.json

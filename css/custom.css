@@ -188,3 +188,73 @@ body {
   padding: 1rem;
   background: #F3F4F6;
 }
+
+/* Formulario de contacto */
+.contact-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.contact-input:focus {
+  border-color: #F5A623;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18);
+}
+
+.contact-input.is-invalid {
+  border-color: #F87171;
+}
+
+.contact-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contact-field-error {
+  margin-top: 0.4rem;
+  color: #FCA5A5;
+  font-size: 0.75rem;
+}
+
+.contact-form-status.is-success {
+  color: #86EFAC;
+}
+
+.contact-form-status.is-error {
+  color: #FCA5A5;
+}
+
+#contact-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.contact-hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
