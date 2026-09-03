@@ -22,11 +22,18 @@
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 
+  # PHP: no cachear respuestas del formulario
+  <FilesMatch "\.php$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate"
+  </FilesMatch>
+
   # Imágenes: caché larga (cambian poco)
   <FilesMatch "\.(jpg|jpeg|png|webp|gif|svg|ico)$">
     Header set Cache-Control "public, max-age=2592000, immutable"
   </FilesMatch>
 </IfModule>
 
-# MIME type correcto para el catálogo JSON
+# MIME types
 AddType application/json .json
+AddType image/x-icon .ico
+AddType image/svg+xml .svg
