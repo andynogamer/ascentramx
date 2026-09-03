@@ -6,8 +6,8 @@
 
 declare(strict_types=1);
 
-const CONTACT_TO_EMAIL = 'contacto@ascentramx.com';
-const CONTACT_FROM_EMAIL = 'contacto@ascentramx.com';
+const CONTACT_TO_EMAIL = 'ventas@ascentramx.com';
+const CONTACT_FROM_EMAIL = 'ventas@ascentramx.com';
 const CONTACT_FROM_NAME = 'ASCENTRA Sitio Web';
 
 const CONTACT_LIMITS = [
