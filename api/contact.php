@@ -2,7 +2,7 @@
 /**
  * API del formulario de contacto.
  * GET  → emite un token CSRF
- * POST → valida, limpia y envía el correo a contacto@ascentramx.com
+ * POST → valida, limpia y envía el correo a ventas@ascentramx.com
  */
 
 declare(strict_types=1);
@@ -148,7 +148,7 @@ $sent = send_contact_email($email);
 if (!$sent) {
     json_response(500, [
         'ok' => false,
-        'message' => 'No pudimos enviar el mensaje. Escríbenos a contacto@ascentramx.com o llámanos.',
+        'message' => 'No pudimos enviar el mensaje. Escríbenos a ventas@ascentramx.com o llámanos.',
     ]);
 }
 

@@ -135,7 +135,7 @@ export function initContactForm() {
 
   const statusEl = byId('contact-form-status');
   const submitBtn = byId('contact-submit');
-  const companyEmail = CONFIG.contact?.email || 'contacto@ascentramx.com';
+  const companyEmail = CONFIG.contact?.email || 'ventas@ascentramx.com';
   const hint = byId('contact-form-hint');
   if (hint) {
     hint.textContent = `Tu mensaje se envía a ${companyEmail}.`;

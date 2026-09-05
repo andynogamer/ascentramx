@@ -15,7 +15,7 @@ export const CONFIG = {
   },
   contact: {
     phone: '+52 81 1082 1305',
-    email: 'contacto@ascentramx.com',
+    email: 'ventas@ascentramx.com',
     location: 'Francisco Villa 202 Ote, Col. Los Elizondo, Escobedo, Nuevo León',
     hours: 'Lun - Vie: 8:30 - 18:00',
   },
