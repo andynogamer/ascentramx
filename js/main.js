@@ -1,7 +1,7 @@
 /**
  * Incrementa este número cada vez que subas cambios al servidor.
  */
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.2.2';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const v = APP_VERSION;
